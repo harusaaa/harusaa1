@@ -31,16 +31,27 @@
             
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 35.681298, lng: 139.766247},
-                zoom: 14,
+                zoom: 10,
+                scrollwheel: false,
+                disableDoubleClickZoom: true,
+                draggable: false
             });
             
-         marker = new google.maps.Marker({
-                map: map,
+           var lat = 35.692141 + Math.random()*2;
+var lng = 139.771225 + Math.random()*2;
+          var rand = Math.floor( Math.random()*10) ;
+
+
+            if (rand == 0) {
+                markers = new google.maps.Marker({map: map,
                 position: {lat: 35.692141, lng: 139.771225}
             });
-             marker.addListener('click', function() {
-                navigator.pushPage('page2.html');
-           });
+            }
+            else {
+                markers = new google.maps.Marker({map: map,
+                position: {lat: lat, lng: lng}
+            });
+            }
             
             avatar = new Avatar(document.getElementById('avatar'), 'img/avatar/char.png');
           var page1 = document.getElementById('page1');
@@ -103,5 +114,5 @@
             </ons-list>
        </ons-page>
     </ons-modal>
-</body>
 </html>
+</body>
