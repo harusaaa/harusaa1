@@ -25,14 +25,15 @@
     <script>
     var avatar;
     var rand = 0;
-
+    var map;
+    
+     
         ons.ready(function() {
             
             var navigator = document.getElementById('navigator');
-            
-            var map = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 35.681298, lng: 139.766247},
-                zoom: 10,
+                zoom: 18,
                 scrollwheel: false,
                 disableDoubleClickZoom: true,
                 draggable: false
@@ -46,7 +47,7 @@
             if (rand == 0) {
                 rand = 1
                 marker = new google.maps.Marker({map: map,
-                position: {lat: 35.692141, lng: 139.771225}
+                position: {lat: 35.6820000, lng: 139.766247}
                 
             });
             }
@@ -58,8 +59,10 @@
             });
            
             }
+           
             marker.addListener('click', function() {
                navigator.pushPage('page2.html');
+                
            });
             
             
@@ -85,6 +88,53 @@
             avatar.changeSkin(skin);
             document.getElementById('user-modal').hide();
         };
+        
+        function test() {
+            marker.setMap(null);
+            var navigator = document.getElementById('navigator');
+            /*var map2 = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 35.681298, lng: 139.766247},
+                zoom: 10,
+                scrollwheel: false,
+                disableDoubleClickZoom: true,
+                draggable: false
+            });*/
+          
+            var lat = 35.692141 + Math.random()*2;
+　　　　　var lng = 139.771225 + Math.random()*2;
+          
+
+            if (rand == 0) {
+                rand = 1
+                marker = new google.maps.Marker({map: map,
+                    position: {lat: 35.6820000, lng: 139.766247}
+                });
+            }
+            else if (rand == 1){
+                rand = 2
+                marker = new google.maps.Marker({map: map,
+                    position: {lat: 35.6810000, lng: 139.766700}
+                });
+            }
+            else if (rand == 2){
+                rand = 3
+                marker = new google.maps.Marker({map: map,
+                    position: {lat: 35.6806000, lng: 139.766046}
+                });
+            }
+            else if (rand == 3){
+                rand = 0
+                marker = new google.maps.Marker({map: map,
+                    position: {lat: 35.6821500, lng: 139.765800}
+                });
+            }
+           marker.addListener('click', function() {
+               navigator.pushPage('page2.html');
+                
+           });
+           
+            document.getElementById('navigator').popPage();
+        }
         </script>
 </head>
 <body>
@@ -110,7 +160,7 @@
         <ons-page id="page2">
             <div id="cameraview" style="width:100%; height:100%;"></div>
             <div style="position: relative; top: -85px; left:15px;">
-           <ons-icon icon="fa-map" size ="60px" style="color: green" onclick="document.getElementById('navigator').popPage()"></ons-icon>
+           <ons-icon icon="fa-map" size ="60px" style="color: green" onclick="test()"></ons-icon>
         </div>
             
         </ons-page>
