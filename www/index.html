@@ -48,9 +48,11 @@
                 rand = 1
                 marker = new google.maps.Marker({map: map,
                 position: {lat: 35.6820000, lng: 139.766247}
-                
             });
             }
+            
+            
+            
             else {
                 rand = 0
                 marker = new google.maps.Marker({map: map,
@@ -132,8 +134,54 @@
                navigator.pushPage('page2.html');
                 
            });
-           
+           setTimeout('test2()', 3000);
             document.getElementById('navigator').popPage();
+        }
+        
+        function test2() {
+            marker.setMap(null);
+            var navigator = document.getElementById('navigator');
+            /*var map2 = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 35.681298, lng: 139.766247},
+                zoom: 10,
+                scrollwheel: false,
+                disableDoubleClickZoom: true,
+                draggable: false
+            });*/
+          
+            var lat = 35.692141 + Math.random()*2;
+　　　　　var lng = 139.771225 + Math.random()*2;
+          
+
+            if (rand == 0) {
+                rand = 1
+                marker = new google.maps.Marker({map: map,
+                    position: {lat: 35.6820000, lng: 139.766247}
+                });
+            }
+            else if (rand == 1){
+                rand = 2
+                marker = new google.maps.Marker({map: map,
+                    position: {lat: 35.6810000, lng: 139.766700}
+                });
+            }
+            else if (rand == 2){
+                rand = 3
+                marker = new google.maps.Marker({map: map,
+                    position: {lat: 35.6806000, lng: 139.766046}
+                });
+            }
+            else if (rand == 3){
+                rand = 0
+                marker = new google.maps.Marker({map: map,
+                    position: {lat: 35.6821500, lng: 139.765800}
+                });
+            }
+           marker.addListener('click', function() {
+               navigator.pushPage('page2.html');
+                
+           });
+           setTimeout('test2()', 3000);
         }
         </script>
 </head>
