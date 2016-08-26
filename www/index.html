@@ -59,7 +59,7 @@
             });
            
             }
-           
+           setTimeout('test()', 3000);
             marker.addListener('click', function() {
                navigator.pushPage('page2.html');
                 
@@ -101,7 +101,7 @@
             });*/
           
             var lat = 35.692141 + Math.random()*2;
-　　　　　var lng = 139.771225 + Math.random()*2;
+　　　　　   var lng = 139.771225 + Math.random()*2;
           
 
             if (rand == 0) {
@@ -128,14 +128,20 @@
                     position: {lat: 35.6821500, lng: 139.765800}
                 });
             }
-            
-           marker.addListener('click', function() {
+           
+               marker.addListener('click', function() {
                navigator.pushPage('page2.html');
                 
            });
+               setTimeout('test()', 3000);
+           
+            
            
             document.getElementById('navigator').popPage();
+           
         }
+        
+        
         </script>
 </head>
 <body>
